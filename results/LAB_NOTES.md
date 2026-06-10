@@ -138,3 +138,70 @@ tests. Not detector drift, not a temporal artifact, not physics.
 sets, both directions. Pooled archival exclusion: L_exp ≲ 0.105 (95% null
 level) in the recorded heralding channel — a factor ≈2.5 below the simulated
 substrate-family magnitude (0.25–0.30).
+
+---
+
+# M-RETRO-2 (CONTEXT_RETRO2.md)
+
+## 2026-06-10 · PREREGISTRATION Amendment 1 committed
+
+E1–E4 (ETH) and the NIST inventory-before-parse protocol registered and
+committed BEFORE downloading the ETH ZIP or opening any NIST file.
+
+---
+
+## 2026-06-10 · acquisition + E1 schema check · ETH 2023
+
+* ETH Research Collection HTML route returns 500 to non-browser fetches;
+  the DSpace 7 REST API works (item uuid 100f0077-511e-4765-b6c8-08ff50a0962a).
+  ZIP downloaded, MD5 matches repository checksum
+  (aa308b354b78d4ba4d8ef5a5457dae1a).
+* **E1 confirmed exactly as registered:** `main_dataset_all_events.txt` is
+  per-trial (a, A, b, B) only — 2^20 = 1,048,576 trials, no timestamps, no
+  auxiliary columns. fig2/fig5 files are aggregates, not event data.
+  Witness disposition: calibration-only. **E4 VOID** (no timing column).
+  No schema surprise → no stop, no further amendment needed.
+* Temptation log (required by the addendum's prohibition clause): none —
+  with only (a, A, b, B) per trial the only constructible "witnesses" are
+  forbidden ones (neighbor-trial outcomes). Not computed, not explored.
+
+---
+
+## 2026-06-10 · scripts/02_calibrate_parser.py (report_eth) · ETH 2023 · E2+E3
+
+**Prediction (registered):** S = 2.0747 ± 0.0033 at n > 1e6; marginal NS null.
+
+**Result:**
+* E2 PASS, exact to all published digits: S = 2.0747 ± 0.0033 at
+  n = 1,048,576 trials; violation z = 22.4σ above S = 2; winning sign
+  pattern (1,−1,1,1) with E = [+0.529, −0.513, +0.500, +0.533].
+* E3: marginal-NS battery (4 z-values): +0.22, −2.12, +0.78, −2.32.
+  Max |z| = 2.32 (unremarkable for a 4-test battery, P ≈ 8%). Largest
+  proportion shift 0.32% ± 0.14% → marginal setting-dependence bounded at
+  ~0.6% (95%) — the tightest marginal-NS reproduction in the project.
+
+**Verdict:** parser trusted on ETH; dataset closed as calibration-only.
+No L_exp computable (k = 0 witness columns; `lexp` returns the registered
+"no witness channel" disposition).
+
+---
+
+## 2026-06-10 · NIST 2015 channel inventory (A1.2) · determination: NO witness
+
+* The S3 bucket lists publicly (193 keys, complete). Instead of downloading
+  a data unit, the official format documentation answered the inventory
+  question outright (`File_Folder_Descriptions.pdf`,
+  `DataProcessingDescription.pdf` — both saved knowledge into SOURCES.md).
+* Per-event channels at BOTH wings (identical): 0 detector click, 2 RNG
+  output 0, 4 RNG output 1, 5 GPS PPS, 6 Pockels sync. **Nothing recorded
+  at the source station.** GPS/sync are clock/settings infrastructure, not
+  environment records of the pair.
+* **Determination: NO → calibration-only; full parse not performed**, per
+  the registered protocol ("do not sink days into a witness-free archive").
+  Floors logged in SOURCES.md (naive 4e-4; click-limited ~2–6e-3).
+  Calibration targets recorded for any future parse: 177,358,351 trials,
+  p = 5.9e-9 (adjusted 2.3e-7).
+* Future-round note (not executed): per-event 78-ps detection timetags do
+  exist at both wings → an ETH-E4-class timing-jitter witness is
+  conceivable but is outside the registered A1.2 question and would require
+  a new amendment + multi-GB parse. Logged to keep the record honest.

@@ -75,3 +75,57 @@ All URLs verified by direct fetch on 2026-06-10 unless noted.
   herald). **Classification: unobtainable / would be calibration-only.**
   If the user can obtain the data, place it under `data/raw/vienna/` and it
   becomes a calibration-only target.
+
+## E1 — ETH Zurich 2023 (Storz et al.) — **ACQUIRED, calibration-only**
+
+* Paper: Storz et al., *Loophole-free Bell inequality violation with
+  superconducting circuits*, Nature 617, 265 (2023). DOI: 10.1038/s41586-023-05885-0.
+* Data DOI: 10.3929/ethz-b-000624026 (ETH Research Collection,
+  handle 20.500.11850/624026). License: CC-BY 4.0 per record.
+* Direct file (DSpace REST):
+  https://www.research-collection.ethz.ch/server/api/core/bitstreams/88466bab-6aba-46e8-bd18-9a62c2c45ea5/content
+  (the HTML landing page returns 500 to non-browser fetches; the REST API
+  works: item uuid 100f0077-511e-4765-b6c8-08ff50a0962a).
+* Local: `data/raw/eth2023_data.zip`, 1,273,595 bytes,
+  MD5 `aa308b354b78d4ba4d8ef5a5457dae1a` — **matches repository checksum**.
+* Format: `main_dataset_all_events.txt` — 2 header lines + 2^20 = 1,048,576
+  trials, one line per trial: `Input Alice, Output Alice, Input Bob,
+  Output Bob` (a ∈ {0,1}, A ∈ {−1,+1}, b, B likewise). Also fig2.txt
+  (density matrix) and fig5.txt (phase-sweep aggregates) — not event data.
+* **Witness determination: NONE — calibration-only, as registered (E1).**
+  No per-trial timestamps, no auxiliary channels of any kind; pre-registered
+  E4 (timing-jitter witness) is VOID: there is no timing column to use.
+  Smallest revealable L_exp had a witness column existed:
+  2/sqrt(2^20/8) ≈ 0.0055.
+* Calibration targets (published): S = 2.0747 ± 0.0033, >1e6 trials,
+  p < 10^-108.
+* Contacts: Simon Storz (simon.storz@phys.ethz.ch), Andreas Wallraff.
+  Readme states "More data available upon reasonable request."
+
+## N1 — NIST 2015 — UPDATE 2026-06-10 (M-RETRO-2): inventory complete, **witness: NO**
+
+* The S3 bucket lists publicly (193 keys, not truncated):
+  `https://s3.amazonaws.com/nist-belltestdata/?list-type=2`. Official
+  documentation downloaded and read:
+  `belldata/File_Folder_Descriptions.pdf` (+ 2017 addendum),
+  `belldata/code/analysis/DataProcessingDescription.pdf`.
+* **Definitive per-event channel inventory** (identical at both wings; from
+  File_Folder_Descriptions.pdf): raw files are (channel, timetag@78.125 ps,
+  transfer#) records with channels 0 = detector click, 2 = RNG output 0,
+  4 = RNG output 1, 5 = GPS PPS, 6 = Pockels sync. **Nothing is recorded at
+  the source station** — no monitor photodiodes, no heralding arms, no
+  source-side counts of any kind. GPS/sync are clock and settings
+  infrastructure, not environment records of the pair.
+* **Determination (registered question A1.2): NO source-side witness →
+  calibration-only; stop without full parse.** Smallest revealable L_exp had
+  a witness existed: naive all-trials floor 2/sqrt(1.77e8/8) ≈ 4e-4; the
+  realistic click-limited floor (sparse detections, singles ~1e5–1e6 per
+  run) is ~2–6e-3.
+* Calibration targets if ever parsed: total trials 177,358,351,
+  p = 5.9e-9 (adjusted 2.3e-7), PRL 115:250402 Table I.
+* Honest note for a future round: per-event detection timetags (78 ps) DO
+  exist at both wings, so an ETH-E4-class A-side timing-jitter witness is
+  conceivable. That is not a source-side environment record and is outside
+  the registered A1.2 question; pursuing it would need a new pre-registration
+  amendment plus a multi-GB parse reproducing the published trial definition.
+  Logged, not executed.

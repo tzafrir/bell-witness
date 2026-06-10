@@ -87,9 +87,40 @@ def report(d):
     print()
 
 
+def report_eth():
+    """E2/E3 gates for ETH 2023 (registered in PREREGISTRATION Amendment 1):
+    reproduce S = 2.0747 +/- 0.0033 at n > 1e6; marginal-NS battery."""
+    from src.loaders import load_eth2023
+    from src.chsh import correlators
+    d = load_eth2023()
+    a, b, A, B = d["a"], d["b"], d["A"], d["B"]
+    n = len(A)
+    E = correlators(a, b, A, B)
+    counts = np.array([[(np.sum((a == ai) & (b == bi))) for bi in (0, 1)]
+                       for ai in (0, 1)])
+    errs = np.sqrt((1 - E ** 2) / counts)
+    best, best_signs = 0.0, None
+    from src.chsh import SIGNS
+    for s in SIGNS:
+        v = float(np.dot(s, E.ravel()))
+        if abs(v) > abs(best):
+            best, best_signs = v, s
+    Serr = float(np.sqrt((errs.ravel() ** 2).sum()))
+    z_violation = (abs(best) - 2) / Serr
+    print(f"=== eth2023: n={n} trials")
+    print(f"  E = {np.array2string(E.ravel(), precision=4)}  signs={best_signs}")
+    print(f"  S = {abs(best):.4f} +/- {Serr:.4f}   (published 2.0747 +/- 0.0033)")
+    print(f"  violation z = {z_violation:.1f} sigma above S=2")
+    print("  marginal NS: A vs b:",
+          {k_: (f"{v[0]:+.5f}", f"z={v[1]:+.2f}") for k_, v in marginal_ns(a, b, A).items()})
+    print("               B vs a:",
+          {k_: (f"{v[0]:+.5f}", f"z={v[1]:+.2f}") for k_, v in marginal_ns(b, a, B).items()})
+
+
 def main():
     report(load_delft1())
     report(load_delft2())
+    report_eth()
 
 
 if __name__ == "__main__":

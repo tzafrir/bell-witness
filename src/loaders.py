@@ -139,3 +139,14 @@ def load_pooled():
     out["W"] = np.vstack([d1["W"], d2["W"]])
     out["name"] = "pooled"
     return out
+
+
+def load_eth2023():
+    """Storz et al. 2023, ETH Zurich. Per-trial (a, A, b, B) only; no witness
+    channel exists in the public file (pre-registered determination E1, see
+    SOURCES.md). W is the canonical empty (n, 0) array."""
+    path = RAW / "eth2023" / "ETH_repo_upload" / "main_dataset_all_events.txt"
+    d = np.genfromtxt(path, delimiter=",", dtype=np.int64, skip_header=2)
+    a, A, b, B = d[:, 0], d[:, 1], d[:, 2], d[:, 3]
+    return dict(a=a, b=b, A=A, B=B, W=np.empty((len(a), 0)), t=None,
+                strict=np.ones(len(a), bool), name="eth2023")
