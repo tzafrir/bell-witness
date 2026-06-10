@@ -155,3 +155,64 @@ fixed) is exact regardless.
   interpretation of a leak bound is cleanest on the strict set. Both are
   reported.
 * n_perm = 1000 limits the smallest reportable p to ~0.001.
+
+---
+
+# AMENDMENT 1 — M-RETRO-2 (registered 2026-06-10, before opening any new data)
+
+Appended per the append-only rule. At the time of writing, the ETH 2023 ZIP
+has not been downloaded or opened, and no NIST archive file has been opened.
+Everything in the original registration (statistic, detector family, null,
+thresholds, kill protocol) carries over unchanged.
+
+## A1.1 ETH Zurich 2023 (Storz et al., Nature 617:265) — registered expectations
+
+* **E1 (schema):** expected per-trial settings + outcomes (possibly
+  timestamps); at >1e6 trials in ~1.2 MB compressed there is no room for
+  analog/auxiliary channels. Expected witness disposition:
+  **calibration-class**. If the schema surprises (any per-trial channel
+  beyond a, b, A, B), STOP, append a further amendment naming the channel
+  and arguing its legitimacy as an environment record, then proceed.
+* **E2 (calibration gate):** reproduce S = 2.0747 ± 0.0033 and a trial
+  count > 1.0e6. Parser untrusted until this passes.
+* **E3 (marginal-NS battery):** standard marginal_ns, both directions, both
+  settings, at million-trial precision; report max |z| and the implied
+  marginal shift bound. Prediction: null (|z| < 3 across the battery, modulo
+  the battery's own multiplicity).
+* **E4 (conditional witness):** IF per-trial timestamps exist, register
+  A-station timing jitter as a legitimate-but-weak witness W (k=1, z-scored
+  trial timing residual; plus the analogous B-side residual for the mirror
+  test if present). Same statistic, same null (n_perm=1000, seed 0), same
+  candidate rule (p < 0.01 AND obs > 5×floor), same kill protocol.
+  Prediction: null; the prize is the bound, ~2/sqrt(n/8) ≈ 0.006 at n ≈ 1e6.
+  If only a global trial index/clock with no jitter information exists
+  (deterministic trial spacing), E4 is void — a constant-rate counter
+  carries no environment record; that determination will be written into
+  SOURCES.md before any E4 computation.
+* **Forbidden (restated):** W must never be built from neighboring trials'
+  outcomes (previous/next A or B). Temporal neighbors are not environment
+  records of the current pair — same prohibition class as using B itself.
+
+## A1.2 NIST 2015 resume — inventory-before-parse protocol
+
+1. Download the smallest unit (one run file of one day), not the archive.
+2. Enumerate every per-event field FIRST. Decision question: do per-event
+   source-side monitor channels exist (monitor photodiodes, sync detectors,
+   heralding-arm counts — anything recorded at the source station)?
+3. YES → second witness-bearing dataset: a further amendment names the
+   channels and argues legitimacy, then full parse; calibration gate =
+   published S/p of PRL 115:250402.
+4. NO → log "calibration-only; smallest revealable L_exp = floor(n)" in
+   SOURCES.md and stop. Marginal-NS at NIST n is a nice-to-have, not a goal.
+
+## A1.3 What each outcome will mean
+
+* ETH calibration-class as expected → tightest marginal-NS reproduction in
+  the project + on-paper motivation for the Task-3 data request: S = 2.075
+  sits near the classical boundary where the parent program's mechanism law
+  predicts maximal leak-per-unit-violation; the joint-channel test there
+  needs records the public file (probably) does not carry.
+* ETH E4 runs and is null → first sub-percent-scale L_exp bound, in a weak
+  (timing) channel, at the maximal-leak operating point.
+* NIST witness YES + null → second heralding-class bound.
+* Any candidate → same kill protocol as M-RETRO; expectation is death.
