@@ -73,3 +73,68 @@ predictions and pre-computed sensitivity floors (D1 0.082, D2 0.090, pooled
 0.061, strict ≈0.33–0.36). Noted in advance: the 5×floor certification rule
 cannot certify even a substrate-magnitude (0.25–0.30) leak at single-dataset
 archival n — archival data bounds, the dedicated experiment certifies.
+
+---
+
+## 2026-06-10 · scripts/02_calibrate_parser.py · D1, D2
+
+**Prediction (registered):** reproduce D1 S=2.42±0.20, k/n=196/245, p=0.039;
+D2 S=2.35±0.18; marginal NS null everywhere.
+
+**Result:**
+* D1: n=245, k=196, p=0.039, S = +2.422 ± 0.204 — exact match.
+* D2: n=300, k=237, p=0.061, combined S = +2.346 ± 0.184; ψ⁻ S=2.309±0.213
+  (n=228), ψ⁺ S=2.465±0.368 (n=72). Verified against the paper text
+  (arXiv:1603.05705): k₂=237, complete-analysis p=0.061, S=2.35±0.18,
+  combined k=433/n=545 — all match.
+* Marginal NS: 16 checks (2 datasets × 2 event sets × both directions × 2
+  settings), max |z| = 2.23 → null, as expected.
+
+**Verdict:** parser trusted. Cleared for the pre-registered witness search.
+
+---
+
+## 2026-06-10 · scripts/04_witness_search.py · D1, D2, pooled
+
+**Prediction (registered):** QM null — every L_exp consistent with its
+permutation null; substrate alternative ≈ 0.25–0.30.
+
+**Result (12 pre-registered tests; n_perm=1000, seed 0):**
+11 clean nulls. The most sensitive test, pooled/primary, gave
+L_exp = 0.028 (A-vs-b, p=0.91) and 0.029 (B-vs-a, p=0.90) against a null 95%
+level of 0.104/0.105. One anomaly: delft1/primary/A-vs-b, L_exp=0.205,
+p=0.004 — below the 5×floor certification threshold (0.41), so logged as
+"anomaly below certification threshold", kill protocol mandatory. Driving
+detector: coordinate t1z (window-1 click time) on a=0 trials. Immediate red
+flags noted before the kill run: D1's own strict subset null (p=0.19);
+pooled set, which CONTAINS all 4746 D1 events, null (p=0.91).
+
+---
+
+## 2026-06-10 · scripts/05_kill_protocol.py · delft1/primary/A-vs-b · [KEPT CORPSE]
+
+**Registered gates (PREREGISTRATION §6):** survive (i) independent split
+seeds 1–5, (ii) held-back temporal halves, (iii) detector-family coherence.
+Gate threshold applied: p<0.01 per re-derivation (the registered candidate
+threshold; the prereg did not pin the per-rederivation gate numerically —
+noted for honesty. Immaterial here: every re-derivation fails even at 0.05).
+
+**Result: KILLED on every axis.**
+* (i) seeds 1–5: L_exp = 0.068, 0.037, 0.025, 0.029, 0.070;
+  p = 0.60, 0.92, 0.97, 0.96, 0.60. Winning feature changes with seed.
+* (ii) temporal halves (by day): early p=0.15, late p=0.75; different
+  winning features in each half, neither matching the original (t1z).
+* (iii) coherence: on the original seed-0 split, coord detector 0.2047 vs
+  linear detector 0.0053 on the same direction — incoherent.
+* Raw statistic E[A·t1z | a=0, b]: −0.0059±0.0310 (b=0) vs −0.0780±0.0273
+  (b=1): a 1.7σ ripple in the full sample, amplified to 0.205 by one
+  particular holdout split. Look-elsewhere: P(min p ≤ 0.004 across the 12
+  registered tests) ≈ 4.7%.
+
+**Cause of death:** split-specific noise amplification + selection across 12
+tests. Not detector drift, not a temporal artifact, not physics.
+
+**Verdict:** M-RETRO outcome is a clean null across all datasets, all event
+sets, both directions. Pooled archival exclusion: L_exp ≲ 0.105 (95% null
+level) in the recorded heralding channel — a factor ≈2.5 below the simulated
+substrate-family magnitude (0.25–0.30).
