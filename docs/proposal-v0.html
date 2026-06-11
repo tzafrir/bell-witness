@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposal v0 — A Bell Test with a Monitored Witness</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#14161a;--panel:#1c1f25;--ink:#dfe3ea;--dim:#9aa3b2;--gold:#d4a44c;--teal:#6fb3a0;--blue:#7aa7d6;--rule:#33394433;--mono:'IBM Plex Mono',monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.65}
+.wrap{max-width:880px;margin:0 auto;padding:48px 28px 80px}
+h1{font-size:1.85rem;line-height:1.25;margin:0 0 8px}
+.framing{color:var(--dim);font-style:italic;margin:0 0 4px}
+.tag{display:inline-block;font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);border-radius:3px;padding:2px 8px;margin:14px 6px 0 0}
+h2{font-size:1.3rem;margin:52px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--rule)}
+p{margin:0 0 14px}
+.intuit{background:#1d2430;border-left:3px solid var(--blue);border-radius:0 6px 6px 0;padding:14px 18px;margin:18px 0;font-style:italic}
+.intuit .label{font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:6px;font-style:normal}
+.precise{background:var(--panel);border-left:3px solid var(--teal);border-radius:0 6px 6px 0;padding:14px 18px;margin:18px 0}
+.precise .label{font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:6px}
+.honest{background:#2a2118;border:1px solid #5a4422;border-radius:6px;padding:14px 18px;margin:18px 0}
+.honest .label{font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:#c9a04b;display:block;margin-bottom:6px}
+code,.m{font-family:var(--mono);font-size:.85em;background:#ffffff10;border-radius:3px;padding:1px 5px;color:#e8d9b8}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.88rem}
+th{font-family:var(--mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.05em;color:var(--dim);text-align:left;padding:7px 9px;border-bottom:1px solid #3a4150}
+td{padding:8px 9px;border-bottom:1px solid var(--rule);vertical-align:top}
+ol,ul{margin:0 0 14px;padding-left:24px} li{margin-bottom:7px}
+footer{margin-top:64px;padding-top:14px;border-top:1px solid var(--rule);color:var(--dim);font-family:var(--mono);font-size:.73rem}
+@media(max-width:700px){.wrap{padding:30px 16px 60px}body{font-size:16px}}
+</style>
+</head>
+<body><div class="wrap">
+<header>
+<h1>A Bell Test with a Monitored Witness:<br>probing extended no-signaling in the joint statistics of system and environment</h1>
+<p class="framing">Proposal v0 · companion to translation-protocol.md, t4_impossibility.md, literature-survey.md, and lemma2-lab-notes.html (v4)</p>
+<span class="tag">proposal v0</span><span class="tag">observable: L_exp</span><span class="tag">QM predicts exactly 0</span>
+</header>
+<p><strong>The claim in one breath.</strong> Quantum mechanics makes an exact, untested prediction: when a partially decohered entangled pair is measured, the <em>joint</em> statistics of one wing's outcome together with any record held by the decohering environment are perfectly independent of the remote wing's measurement setting — zero dependence, at every decoherence level, forever. A broad class of classical substrate models — any model in which outcomes are computed from underlying configurations — provably <em>cannot</em> achieve this: in such models, Bell violation forces the remote setting to be written into local micro-statistics, at magnitudes we have measured to be large. One experiment separates them, and nobody has run it.</p>
+<h2>1 · The observable</h2>
+<div class="precise"><span class="label">Definition</span>
+Source emits entangled pairs to wings A (Alice, settings a) and B (Bob, settings b). An ancilla C interacts with the pair near the source with tunable strength φ (a controlled, <em>monitored</em> decoherence channel), and is measured in basis c, spacelike separated from Bob's setting choice. Define
+<p style="text-align:center;font-family:var(--mono);font-size:.95em;margin:10px 0">L<sub>exp</sub>(φ) = max<sub>a,c</sub> | E[A·C | a, c, b=0] − E[A·C | a, c, b=1] |</p>
+Quantum prediction: <strong>L<sub>exp</sub> ≡ 0 exactly</strong>. Bob's operation acts on his tensor factor and commutes with every observable of A⊗C; this is no-signaling extended to the joint system-plus-environment level — a theorem of the formalism, not an approximation, and independent of φ.</div>
+<div class="intuit"><span class="label">Intuition</span>
+A crime in two cities, one suspect interviewed in each. Standard Bell tests check that neither suspect's <em>own</em> answers betray which question the other was asked — and they don't. But there was a witness at the scene: the environment that brushed against the pair at birth. Quantum mechanics swears the witness is perfectly discreet — not even the <em>pattern of agreement</em> between the witness and a suspect can betray the remote question. Classical substrate models cannot keep the witness quiet, because their spooky correlations work by physically jostling a shared hidden object, and the witness was touching the object when the jostling happened.</div>
+<h2>2 · Why this is unmeasured</h2>
+<p>Every located experimental no-signaling test checks <em>marginal</em> conditions — that one party's outcome distribution is independent of the other's setting (dedicated analyses of loophole-free data; two-proportion Z-tests as standard practice). Speed-of-influence experiments (Salart 2008; Yin 2013) bound finite-speed <em>propagating</em> mechanisms via frame scanning. Leggett-model falsifications (Gröblacher 2007; Branciard 2007/08) exclude nonlocal models with specific marginal structure. Quantum Darwinism experiments demonstrate fragment-resolved environment readout — the needed lab capability — but never in a Bell configuration conditioned on a remote setting. Full map with references: literature-survey.md.</p>
+<div class="intuit"><span class="label">Intuition</span>
+Everyone has checked whether each suspect's mood changes with the other's interrogation. Nobody has ever sat the witness and a suspect down <em>together</em> and asked whether their pattern of agreement shifts. The substrate class passes every existing test by construction — its marginals are pinned flat by symmetry. The joint with the witness is its only exposed skin. The theorem (§3) says that skin cannot be armored.</div>
+<h2>3 · The substrate-side prediction</h2>
+<div class="precise"><span class="label">Theorem (T4 impossibility; proof in t4_impossibility.md)</span>
+In any model with setting-independent preparation where outcomes are functions of side-local configurations, Bell violation implies an A-side observable whose joint statistics with A depend on b. Closest prior art: Bancal et al., Nat. Phys. 8:867 (2012) — finite-speed hidden influences imply superluminal signaling. Same logical shape (hidden mechanism ⇒ operational signaling); different axis (propagation speed there; configuration-disturbance with accessible records here), and here with measured magnitudes.</div>
+<div class="precise"><span class="label">Measured magnitudes (contractive rewrite family; lemma2-lab-notes.html v4)</span>
+Optimal-detector leak ≈ 0.25–0.30 at S = 2.07–2.48 (15–26× statistical floor); not suppressible by adversarial optimization (0/7 gadgets; dedicated minimizer failed at 26σ). <strong>Mechanism law:</strong> leak ∝ violating-mechanism rate, not S−2 — confirmed on two path families; leak <em>per unit violation</em> grows toward the classical boundary, i.e. the effect is relatively strongest exactly where real partially-decohered pairs live. <strong>Robustness:</strong> record-fidelity cost sub-linear (58% of leak survives at 60% fidelity); coverage cost ≈ proportional. Realistic partial, noisy records: expected L<sub>exp</sub> ~ 0.05–0.15 for this family.</div>
+<div class="intuit"><span class="label">Intuition</span>
+Three findings, one message. The gossip is loud (a 0.3 shift where zero is predicted). The gossip survives bad hearing (blurry records keep most of the signal — many small records vote, and majorities are hard to silence). And diluted entanglement gossips <em>more per unit of spookiness</em>, not less — because the leak tracks how often the mechanism fires, not how much advantage survives. You cannot whisper this mechanism. That is not a tuning accident; it is what the theorem looks like when it has numbers.</div>
+<h2>4 · Apparatus</h2>
+<ol>
+<li><strong>Source:</strong> polarization-entangled photon pairs, standard loophole-free-grade geometry, fast random setting generators for a, b.</li>
+<li><strong>Monitored decoherence stage:</strong> ancilla photon (or atomic ancilla) weakly coupled to one photon near the source, interaction strength φ tunable from 0 (S ≈ 2.8) toward severance (S → 2). This is the substrate model's "partial severance with records" regime <em>by construction</em>: the ancilla demonstrably causes the decoherence it records.</li>
+<li><strong>Third detector:</strong> measures the ancilla in a scanned set of bases c, spacelike from Bob's choice. Quantum-Darwinism experiments establish fragment-resolved readout feasibility.</li>
+<li><strong>Output:</strong> for each (a, b, c): the full joint table P(A, C | a, b, c), alongside S(φ).</li>
+</ol>
+<div class="intuit"><span class="label">Intuition</span>
+It is an ordinary Bell experiment with one deliberate act of eavesdropping: we let a single photon watch the pair's birth closely enough to blur it a little, then we never stop interviewing that photon. The blurring is the point — the substrate's leak lives at partial decoherence, and we control the dial.</div>
+<h2>5 · Protocol and statistics</h2>
+<div class="precise"><span class="label">Plan</span>
+(i) <strong>Pre-registration</strong> of φ grid, c-basis scan, test statistic, and corrections — mirroring this program's internal discipline. (ii) Test statistic: max over (a, c) of the b-shift in E[A·C], with a train/test split (bases selected on half the data, effect sized on the holdout) to kill selection inflation — the same protocol our simulations used. (iii) Statistics: bounding L<sub>exp</sub> &lt; δ needs ~δ<sup>−2</sup> trials per setting cell; δ = 10<sup>−2</sup> ⇒ ~10<sup>4</sup> trials/cell — hours, not months, for modern sources. (iv) Analysis frameworks for data with bounded signaling exist (arXiv:2602.05507; arXiv:2511.06624) and should be adopted for the null analysis. (v) Report at several φ: the substrate effect peaks at intermediate decoherence and must vanish at φ=0 and φ=1 (no records / no violation) — a built-in signature shape that separates it from mundane systematics, which have no reason to track φ this way.</div>
+<div class="intuit"><span class="label">Intuition</span>
+The cheapest profound experiment available: the statistics are easy because the predicted effect is either exactly zero or enormous by precision-measurement standards. And it carries its own lie detector — the effect must rise and fall with the blur dial in a specific arch, while boring systematic errors don't know what the dial is.</div>
+<h2>6 · Interpreting outcomes</h2>
+<table>
+<tr><th>outcome</th><th>meaning</th><th>action</th></tr>
+<tr><td>Null, L<sub>exp</sub> &lt; δ across φ</td><td>Excludes a region of (coverage, fidelity, mechanism-rate) for record-bearing substrate families — exclusion surfaces from the measured bridging laws. Extended no-signaling confirmed at the joint level for the first time.</td><td>Publish exclusion analysis; tighten δ.</td></tr>
+<tr><td>Nonzero, φ-arched, replicated</td><td>New physics regardless of any model: operational signaling at the joint level. Extraordinary-claim protocol: independent replication, loophole audit, basis-scan robustness.</td><td>Everything changes; proceed very slowly.</td></tr>
+<tr><td>Nonzero, not φ-arched</td><td>Systematics until proven otherwise.</td><td>Hunt the artifact; the hygiene literature (arXiv:1801.05739) applies.</td></tr>
+</table>
+<div class="honest"><span class="label">Escape hatches, audited in advance</span>
+A null does not kill all substrate models — it forces a structural cost. The retreat "the lab ancilla doesn't hold the substrate's records" contradicts the record⇒sever unification (the ancilla demonstrably causes the decoherence; in the model, causing decoherence <em>is</em> taking records), reopening the axiom triad and forcing micro-inaccessibility as a brute, unexplained axiom against the grain of the T4 theorem. The retreat "wrong detector basis" is closed quantitatively: the in-model leak is broadband across single-coordinate detectors; a moderate basis scan covers it. We commit to these audits now, before data exist.</div>
+<div class="intuit"><span class="label">Intuition</span>
+Heads: the first confirmation of a quantum prediction nobody bothered to test, plus a fence around an entire class of "the universe is secretly classical" theories, with coordinates. Tails: the discovery of the century, to be disbelieved until it survives everyone's best attempts to kill it — including ours. The arch over the blur dial is the referee.</div>
+<h2>7 · Retrospective appendix — a free first bound</h2>
+<p>The 2015–2016 loophole-free experiments (Delft, NIST, Vienna) partially published raw data. Any auxiliary detector channel temporally correlated with the source — heralding detectors, monitor photodiodes, environment channels recorded for diagnostics — can serve as a crude C. We invite (and intend to attempt) a retrospective analysis: tabulate b-conditioned joints of (A, auxiliary channel). Sensitivity will be poor (the channels were not designed as record-bearing ancillas; coverage and fidelity unknown), but the bound costs nothing, and defining the observable publicly is itself the mitigation against the survey's residual risk of an unindexed prior measurement.</p>
+<p><em>[Status note added at mirroring time: executed. Clean pre-registered null; L<sub>exp</sub> ≲ 0.105 (95%), Delft pooled heralding channel. This repository is that analysis.]</em></p>
+<h2>8 · Scope and claims discipline</h2>
+<ul>
+<li>This proposal does <strong>not</strong> test "the universe is a graph." It tests <em>extended no-signaling at the joint system-environment level</em> — a sharp, theory-agnostic question on which QM stakes an exact 0 and a provably-leaky model class stakes a large number.</li>
+<li>Magnitudes (0.05–0.3) are properties of the studied family, not of all conceivable substrates; the theorem guarantees existence of a leak for the whole class, the family supplies the scaling laws that convert a null into exclusion surfaces.</li>
+<li>All registered predictions, broken predictions, discarded runs, and the two flukes caught by confirmation protocols are in the master record (lemma2-lab-notes.html v4). The methodology of this program is offered as part of the proposal: pre-registration is not decoration; it is how this document earned its numbers.</li>
+</ul>
+<footer>proposal-v0.html · 2026-06-10 · companion records: lemma2-lab-notes.html (v4) · t4_impossibility.md · translation-protocol.md · literature-survey.md · bridging_surface_results.md · leak_law_results.md · program-status.md</footer>
+</div></body></html>

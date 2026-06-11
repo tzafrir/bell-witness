@@ -104,7 +104,7 @@ This repository is the archival-data arm of a theory+simulation program on
 classical-substrate models of quantum measurement. The substrate-side
 magnitudes quoted here (predicted `L_exp` ≈ 0.25–0.30 at partial decoherence;
 the T4 impossibility theorem forcing `L_exp` > 0 for the model class) are
-carried by the parent-program documents, to be mirrored under `docs/`
+carried by the parent-program documents, mirrored under `docs/`
 (`t4_impossibility.md`, `translation-protocol.md`, `literature-survey.md`,
 `proposal-v0.html`); see `docs/README.md` for status. This repo's own claims
 are only: the pipeline validates on known answers, the published S values
