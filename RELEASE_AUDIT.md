@@ -3,14 +3,15 @@
 Final deliverable of `RELEASE_TASK.md`. Everything below was verified on the
 commit this file ships in; the tag `v1.0-archival` points at it.
 
-> **Tag status:** the annotated tag exists locally at the tip of branch
-> `claude/charming-brahmagupta-upip67`, but the execution environment's
-> push access is scoped to that branch only (tag push returns HTTP 403).
-> **One manual step for the maintainer**, after merging/fast-forwarding to
-> this branch tip:
-> `git tag -a v1.0-archival <branch tip> -m "Archival null: 12/12 pre-registered L_exp tests null; pooled Delft bound L_exp <~ 0.105 (95%)" && git push origin v1.0-archival`
-> — or create the tag/release at the branch tip in the GitHub UI using the
-> draft note in `RELEASING.md`.
+> **Tag status (updated 2026-06-11):** the maintainer pushed
+> `v1.0-archival` at `8c6aeb1` (the commit this audit's transcript was
+> verified against). The parent-program docs then landed in `75d3c6a`
+> (touching only `docs/` and one README sentence — no code, results, or
+> expected values). Because the repository had no external consumers at
+> that point, the tag was re-pointed to the branch tip so a single tag
+> carries the complete release, docs included. The reproduction transcript
+> in §2 remains valid for the tagged tree: the diff between the audited
+> commit and the tag is docs-only.
 
 ## 1. Hygiene findings (full git history, not just HEAD)
 
