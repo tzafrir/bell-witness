@@ -129,3 +129,18 @@ All URLs verified by direct fetch on 2026-06-10 unless noted.
   the registered A1.2 question; pursuing it would need a new pre-registration
   amendment plus a multi-GB parse reproducing the published trial definition.
   Logged, not executed.
+
+---
+
+# License determinations (release audit, 2026-06-11)
+
+This repository does **not** redistribute any dataset. It ships download
+scripts plus MD5 checksums; data lands in the gitignored `data/raw/`.
+Verified license status of each source:
+
+| Source | License (verified) | Verification | Obligations on our use |
+|---|---|---|---|
+| Delft D1, D2 (4TU.ResearchData) | "4TU General Terms of Use" (DOI 10.4121/resource:terms_of_use); 4TU expects users to cite datasets as scholarly works | dataset landing pages, fetched 2026-06-10 | cite the dataset DOIs and papers (done here and in any output). Note: the release brief stated CC-BY for these; the records themselves say General Terms of Use — we record what the records say. |
+| ETH 2023 | **CC-BY 4.0** (`dc.rights.license` = "Creative Commons Attribution 4.0 International") | DSpace item metadata, item uuid 100f0077-…, fetched 2026-06-11 | attribution required: credit Storz et al., data DOI 10.3929/ethz-b-000624026 (done) |
+| NIST 2015 | US Government work — public domain (17 U.S.C. §105) | NIST-hosted data, no license file in bucket | none; we cite PRL 115:250402 and the NIST repository as good practice |
+| Vienna 2015 | n/a — no data obtained | — | — |

@@ -221,3 +221,5 @@ __marimo__/
 data/raw/
 *.h5
 *.hdf5
+
+results/reproduced.json

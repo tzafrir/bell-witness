@@ -1,4 +1,3 @@
-import numpy as np
 from src.synthetic import make_synthetic
 from src.lexp import lexp, lexp_null, sensitivity_bound
 

@@ -5,7 +5,6 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-import numpy as np
 from src.synthetic import make_synthetic
 from src.chsh import chsh_S, marginal_ns
 from src.lexp import lexp, lexp_null, sensitivity_bound

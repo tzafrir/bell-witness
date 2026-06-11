@@ -1,5 +1,15 @@
 # PRE-REGISTRATION — Witness search in archival Bell data
 
+> **Auditability note (added 2026-06-11 for public release; this block is an
+> addition, not an edit of any registered content below).** Commit hashes
+> proving registration precedes the runs that used it — verify with
+> `git log --oneline` / `git show <hash> --stat`:
+>
+> | Registration | Committed in | First run using it |
+> |---|---|---|
+> | Original plan (§1–§9 below) | `d6ac358` | `d042d4f` (calibration, 12-test witness search, kill protocol) |
+> | Amendment 1 (M-RETRO-2: ETH E1–E4, NIST A1.2) | `7cb20b0` | `e64e525` (ETH calibration, NIST inventory) |
+
 **Status: REGISTERED 2026-06-10, before any statistic was computed on real
 data.** At the time of writing, the only operations performed on real data
 were: download, checksum verification, `head` of the first rows, and reading

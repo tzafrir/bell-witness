@@ -16,7 +16,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 import numpy as np
 from src.loaders import load_delft1, load_delft2, load_pooled
-from src.lexp import lexp, lexp_null, sensitivity_bound
+from src.lexp import lexp, sensitivity_bound
 
 N_PERM = 1000
 

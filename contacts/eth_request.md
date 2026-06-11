@@ -23,8 +23,8 @@ The analysis is one sentence: a pre-registered test of whether the joint
 statistics of one station's outcome together with any recorded auxiliary
 degree of freedom depend on the remote station's setting — a quantity
 quantum mechanics fixes at exactly zero at every decoherence level, and
-which no published analysis (all no-signaling checks are marginal) has ever
-examined. Your experiment is uniquely interesting for this test because
+which, as far as we can find, no published analysis has examined (existing
+no-signaling checks are marginal). Your experiment is uniquely interesting for this test because
 S ≈ 2.07 sits close to the classical boundary, the regime where the model
 class we test predicts the largest effect per unit violation.
 
@@ -34,8 +34,8 @@ for any apparent signal) is public in our repository and we are happy to
 send it up front. On the same public archives we have already produced
 bounds from the Delft 2015/2016 heralding records (clean null,
 L_exp ≲ 0.105). The result is publishable either way — a null with your
-data would be the most sensitive bound of its kind by two orders of
-magnitude — and the data source is credited in any output.
+data would tighten the existing bound by more than an order of magnitude —
+and the data source is credited in any output.
 
 If these records were not retained, a one-line reply saying so is itself a
 useful datum for our archival survey, and we will not take more of your

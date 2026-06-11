@@ -17,7 +17,7 @@ The strongest archival bound on the substrate class is unchanged:
 **L_exp ≲ 0.105 (95%), Delft pooled heralding channel.** The two contact
 drafts that could change this — ETH (sub-percent sensitivity at the
 maximal-leak operating point) and Munich (the only other event-ready
-archive) — are written and committed in `contacts/`.
+archive we are aware of) — are written and committed in `contacts/`.
 
 ## 1. Dataset disposition (cumulative, all rounds)
 
@@ -88,11 +88,12 @@ for the two data requests:
 * **ETH** retains (per the readme, "more data available upon reasonable
   request") possibly IQ readout traces, per-trial timestamps, or
   transfer-photon diagnostics → any one of them turns the most diagnostic
-  operating point into the most sensitive L_exp test ever done.
+  operating point into an L_exp test ~17x more sensitive than the current
+  Delft bound (floor ~0.006 vs 0.105).
 * **Munich** (Rosenfeld et al. 2017, event-ready atoms, S = 2.221 ± 0.033)
-  is the only other heralded-architecture archive in existence; its 4-APD
-  BSM records are the same witness class as Delft and would roughly double
-  the world's heralded-witness statistics.
+  is the only other heralded-architecture archive we are aware of; its
+  4-APD BSM records are the same witness class as Delft and would roughly
+  double the available heralded-witness statistics.
 
 ## 5. Strongest-bound statement (unchanged)
 

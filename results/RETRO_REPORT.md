@@ -6,8 +6,8 @@ before any statistic touched real data) · **Run record:** `LAB_NOTES.md`
 
 ## TL;DR
 
-A clean, pre-registered null. The first joint-level extended-no-signaling
-check (`L_exp`) ever run on loophole-free Bell data finds no dependence of
+A clean, pre-registered null. To our knowledge the first joint-level
+extended-no-signaling check (`L_exp`) run on loophole-free Bell data; it finds no dependence of
 the joint (outcome, environment-witness) statistics on the remote setting, in
 either direction, in any dataset or event set. The pooled Delft data bounds
 `L_exp ≲ 0.105` (95% permutation-null level) in the recorded heralding

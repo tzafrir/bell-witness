@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use this software or the archival bound, please cite it as below."
+title: "bell-witness: a joint-level extended no-signaling check on archival loophole-free Bell data"
+authors:
+  - family-names: Rehan
+    given-names: Tzafrir
+    email: tzafrir.r@gmail.com
+type: software
+version: v1.0-archival
+date-released: "2026-06-11"
+year: 2026
+repository-code: "https://github.com/tzafrir/bell-witness"
+url: "https://github.com/tzafrir/bell-witness"
+license: MIT
+keywords:
+  - Bell test
+  - no-signaling
+  - quantum foundations
+  - pre-registered analysis
+  - hidden-variable models
+abstract: >-
+  Pre-registered search for a dependence of the joint statistics of one
+  wing's outcome and an environment witness on the remote wing's setting
+  (L_exp) in public loophole-free Bell-test data. Quantum mechanics fixes
+  L_exp at exactly zero. Result: clean null across 12 pre-registered tests
+  on the Delft 2015/2016 event-ready datasets; pooled bound L_exp <~ 0.105
+  (95%) in the recorded heralding channel. Includes exact reproductions of
+  the published S values of Delft 2015/2016 and ETH 2023, and a one-command
+  reproduction harness.

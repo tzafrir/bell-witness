@@ -61,7 +61,7 @@ def report(d):
     p = binom_sf(k, n, KSI)
     print(f"=== {d['name']}: strict trials n={n}, k={k}, p={p:.3f}")
     res = chsh_with_psi(a, b, A, B, psi_plus)
-    Ss, ws = [], []
+    Ss = []
     for psi, r in res.items():
         if r is None:
             continue

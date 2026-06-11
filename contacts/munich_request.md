@@ -23,9 +23,9 @@ retained and could be shared:
 The analysis is one sentence: a pre-registered test of whether the joint
 statistics of one station's outcome together with the heralding-station
 records depend on the remote station's setting — a quantity quantum
-mechanics fixes at exactly zero, and which no published analysis (all
-no-signaling checks are marginal, and ours is the joint-with-witness
-version) has ever examined.
+mechanics fixes at exactly zero, and which, as far as we can find, no
+published analysis has examined before (existing no-signaling checks are
+marginal; ours is the joint-with-witness version).
 
 We commit before seeing any data: our pre-registration document (the exact
 statistic, the allowed detector family, the permutation null, significance
@@ -33,9 +33,9 @@ thresholds, and the kill protocol applied to any apparent signal) is public
 in our repository and we will send it up front. We have already run the
 identical analysis on the Delft 2015/2016 open data, where the heralding
 records are public (result: a clean null bounding the effect at
-L_exp ≲ 0.105). Your dataset would roughly double the world's
-heralded-witness statistics and is the only other event-ready archive in
-existence. The result is publishable either way and the data source is
+L_exp ≲ 0.105). Your dataset would roughly double the available
+heralded-witness statistics and is the only other event-ready archive we
+are aware of. The result is publishable either way and the data source is
 credited in any output.
 
 If the heralding records were not retained at per-event granularity, a
