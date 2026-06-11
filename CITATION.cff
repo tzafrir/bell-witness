@@ -7,6 +7,11 @@ authors:
     email: tzafrir.r@gmail.com
 type: software
 version: v1.0-archival
+doi: 10.5281/zenodo.20641067
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.20641067
+    description: Zenodo archive of the v1.0-archival release
 date-released: "2026-06-11"
 year: 2026
 repository-code: "https://github.com/tzafrir/bell-witness"

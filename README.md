@@ -1,5 +1,7 @@
 # bell-witness — a joint-level extended no-signaling check on archival Bell data
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20641067.svg)](https://doi.org/10.5281/zenodo.20641067)
+
 To our knowledge this is the first test, on loophole-free Bell-test data, of
 whether the **joint** statistics of one wing's outcome together with an
 *environment witness* depend on the remote wing's setting. Quantum mechanics
@@ -123,7 +125,8 @@ If you use this pipeline or the bound, please cite (see `CITATION.cff`):
   title     = {bell-witness: a joint-level extended no-signaling check on
                archival loophole-free Bell data},
   year      = {2026},
-  publisher = {GitHub},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.20641067},
   url       = {https://github.com/tzafrir/bell-witness},
   note      = {v1.0-archival}
 }
