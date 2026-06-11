@@ -3,6 +3,14 @@
 Final deliverable of `RELEASE_TASK.md`. Everything below was verified on the
 commit this file ships in; the tag `v1.0-archival` points at it.
 
+> **Tag status:** the annotated tag was created locally at commit `0feeb4b`
+> but the execution environment's push access is scoped to the working
+> branch only (tag push returns HTTP 403). **One manual step for the
+> maintainer:**
+> `git fetch origin && git tag -a v1.0-archival 0feeb4b -m "Archival null: 12/12 pre-registered L_exp tests null; pooled Delft bound L_exp <~ 0.105 (95%)" && git push origin v1.0-archival`
+> — or create the tag/release at commit `0feeb4b` in the GitHub UI using
+> the draft note in `RELEASING.md`.
+
 ## 1. Hygiene findings (full git history, not just HEAD)
 
 | Check | Result |
