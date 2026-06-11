@@ -42,7 +42,7 @@ heralded events) gives observed `L_exp` = 0.028/0.029 against a 95%
 permutation-null level of ≈ 0.105, both directions. Full tables:
 `results/RETRO_REPORT.md`, `results/RETRO2_REPORT.md`.
 
-## Reproduce everything (one command, ~2 minutes)
+## Reproduce everything (one command, ~1 minute)
 
 ```bash
 git clone https://github.com/tzafrir/bell-witness && cd bell-witness
@@ -57,8 +57,8 @@ host is unreachable it tells you which file to fetch manually and skips),
 tests, the kill protocol — and (4) diffs them against
 `results/expected/expected.json`, exiting nonzero on any mismatch. All
 stochastic steps use explicit seeds recorded in the expected values;
-permutation tests reproduce exactly under the pinned numpy. Wall-clock on a
-clean clone: ~1–2 min after downloads.
+permutation tests reproduce exactly under the pinned numpy. Measured on a
+clean clone: 55 s, downloads included (2026-06-11; see RELEASE_AUDIT.md).
 
 ## Repository map
 
